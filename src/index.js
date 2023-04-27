@@ -29,7 +29,7 @@ function onSubmitInput(evt) {
         .then(country => {
             if (country.length > 10) {
                 Notiflix.Notify.failure('Too many matches found. Please enter a more specific name.');
-                resetMarkup();
+                clearMarkup();
             }
             else if (country.length <= 10 && country.length >= 2) {
                 createMarkupForCountries(country);
@@ -55,7 +55,7 @@ function createMarkupForCountries(countriesArray) { //розмітка для м
         })
    .join(''); //перетв. рядок в масив
     clearMarkup();
-    
+
     //вставляємо фрагмент HTML в element в кінець розмітки
    return listCountry.insertAdjacentHTML('beforeend', markup); 
     }
